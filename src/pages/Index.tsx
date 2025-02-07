@@ -21,13 +21,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 font-montserrat">
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-16 animate-fade-up">
         {/* Logo Section */}
         <div className="flex flex-col items-center gap-3">
-          <h1 className="text-6xl sm:text-7xl font-light tracking-wide text-white animate-fade-in">
-            aurtho
-          </h1>
+          <img 
+            src="/lovable-uploads/1cf57817-206d-4cdc-b736-2b4f4d8aafb5.png" 
+            alt="Aurtho Logo" 
+            className="w-48 sm:w-64 animate-fade-in"
+          />
           <p className="text-gray-400 text-lg sm:text-xl tracking-wide animate-fade-in delay-200">
             Know your money habits with AI
           </p>
