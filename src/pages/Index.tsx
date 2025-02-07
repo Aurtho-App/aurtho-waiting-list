@@ -21,7 +21,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 font-montserrat">
+    <div className="min-h-screen flex flex-col items-center justify-between p-6 font-montserrat">
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-16 animate-fade-up">
         {/* Logo Section */}
         <div className="flex flex-col items-center gap-3">
@@ -30,7 +30,7 @@ const Index = () => {
             alt="Aurtho Logo" 
             className="w-48 sm:w-64 animate-fade-in"
           />
-          <p className="text-gray-400 text-lg sm:text-xl tracking-wide animate-fade-in delay-200">
+          <p className="text-gray-200 text-lg sm:text-xl tracking-wide animate-fade-in delay-200">
             Know your money habits with AI
           </p>
         </div>
@@ -71,12 +71,12 @@ const Index = () => {
             </Button>
           </div>
         </form>
-
-        {/* App Store Text */}
-        <p className="text-gray-500 text-sm sm:text-base tracking-wide animate-fade-in delay-400">
-          Coming soon to the App Store
-        </p>
       </div>
+
+      {/* App Store Text */}
+      <p className="text-gray-300 text-sm sm:text-base tracking-wide animate-fade-in delay-400 mt-auto pt-8">
+        Coming soon to the App Store
+      </p>
     </div>
   );
 };
