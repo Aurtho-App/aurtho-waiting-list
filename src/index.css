@@ -33,7 +33,7 @@
   }
   body {
     @apply bg-black text-foreground antialiased;
-    background: radial-gradient(circle at top, rgba(26, 77, 46, 0.8) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(0, 0, 0, 1) 100%);
+    background: radial-gradient(circle at top, rgba(36, 76, 60, 0.8) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(0, 0, 0, 1) 100%);
     background-attachment: fixed;
   }
 }
