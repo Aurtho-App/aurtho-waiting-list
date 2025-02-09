@@ -2,11 +2,13 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       toast.error("Please enter your email address");
@@ -16,8 +18,31 @@ const Index = () => {
       toast.error("Please enter a valid email address");
       return;
     }
-    toast.success("Thank you for joining the waiting list!");
-    setEmail("");
+
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase
+        .from('waiting_list')
+        .insert([{ email }]);
+
+      if (error) {
+        if (error.code === '23505') { // Unique violation error code
+          toast.error("This email is already on the waiting list!");
+        } else {
+          console.error('Error saving email:', error);
+          toast.error("Something went wrong. Please try again.");
+        }
+        return;
+      }
+
+      toast.success("Thank you for joining the waiting list!");
+      setEmail("");
+    } catch (err) {
+      console.error('Error saving email:', err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -49,11 +74,13 @@ const Index = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email address"
                 className="w-full px-6 py-4 rounded-full bg-transparent input-gradient border border-gray-800 focus:border-gray-600 outline-none text-white placeholder:text-gray-500 pr-12 transition-all duration-300"
+                disabled={isSubmitting}
               />
               <Button
                 type="submit"
                 size="icon"
                 className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full w-8 h-8 bg-white hover:bg-gray-200 transition-colors duration-300"
+                disabled={isSubmitting}
               >
                 <svg
                   width="15"
