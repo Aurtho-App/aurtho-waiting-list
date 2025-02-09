@@ -24,7 +24,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col items-center justify-between p-6 font-montserrat">
       <div className="flex-1 w-full max-w-6xl mx-auto flex flex-col items-center justify-center gap-16 animate-fade-up">
         {/* Logo Section */}
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-12">
           <img 
             src="/lovable-uploads/1cf57817-206d-4cdc-b736-2b4f4d8aafb5.png" 
             alt="Aurtho Logo" 
